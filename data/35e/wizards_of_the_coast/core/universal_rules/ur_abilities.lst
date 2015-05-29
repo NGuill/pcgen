@@ -38,10 +38,10 @@ LEVEL_ADJUSTMENT_4	CATEGORY:Internal		VISIBLE:NO																															T
 LEVEL_ADJUSTMENT_5	CATEGORY:Internal		VISIBLE:NO																															TEMPLATE:LEVEL_ADJUSTMENT_5
 LEVEL_ADJUSTMENT_6	CATEGORY:Internal		VISIBLE:NO																															TEMPLATE:LEVEL_ADJUSTMENT_6
 
+###Block:
 SOURCELONG:Universal Rules	SOURCESHORT:UR	SOURCEDATE:2003-09
 
-Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0	DEFINE:FirstLevelFeatTaken|0	DEFINE:FirstLevelFeatAllowed|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABFull|0	DEFINE:UseAlternateBABProgression|0				ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FirstLevelFeatTaken|count("ABILITIES","CATEGORY=FEAT","NATURE=Normal","TYPE=FirstLevel")	BONUS:VAR|FirstLevelFeatAllowed|1	BONUS:VAR|FirstLevelFeatAllowed|1|PRERACE:1,Human	BONUS:VAR|DC_CHA|10+(HD/2)+CHA		BONUS:VAR|DC_CON|10+(HD/2)+CON		BONUS:VAR|DC_INT|10+(HD/2)+INT		BONUS:VAR|DC_WIS|10+(HD/2)+WIS		BONUS:VAR|DC_STR|10+(HD/2)+STR		BONUS:VAR|DC_DEX|10+(HD/2)+DEX		DEFINE:DC_CHA|0	DEFINE:DC_CON|0	DEFINE:DC_INT|0	DEFINE:DC_WIS|0	DEFINE:DC_STR|0	DEFINE:DC_DEX|0	DEFINE:AC_NaturalArmor|0	BONUS:COMBAT|AC|AC_NaturalArmor|TYPE=NaturalArmor	DEFINE:CasterLevelBonus|0
-	
+Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0	DEFINE:FirstLevelFeatTaken|0	DEFINE:FirstLevelFeatAllowed|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABFull|0	DEFINE:UseAlternateBABProgression|0				ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FirstLevelFeatTaken|count("ABILITIES","CATEGORY=FEAT","NATURE=Normal","TYPE=FirstLevel")	BONUS:VAR|FirstLevelFeatAllowed|1	BONUS:VAR|FirstLevelFeatAllowed|1|PRERACE:1,Human	BONUS:VAR|DC_CHA|10+(HD/2)+CHA		BONUS:VAR|DC_CON|10+(HD/2)+CON		BONUS:VAR|DC_INT|10+(HD/2)+INT		BONUS:VAR|DC_WIS|10+(HD/2)+WIS		BONUS:VAR|DC_STR|10+(HD/2)+STR		BONUS:VAR|DC_DEX|10+(HD/2)+DEX		DEFINE:DC_CHA|0	DEFINE:DC_CON|0	DEFINE:DC_INT|0	DEFINE:DC_WIS|0	DEFINE:DC_STR|0	DEFINE:DC_DEX|0	DEFINE:Caster_Level_Bonus|0
 
 #	BONUS:COMBAT|BASEAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
 #	BONUS:COMBAT|BASEAB|ClassMasterBAB|PRERULE:Use Fractional BAB
@@ -50,6 +50,132 @@ Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision
 # Ability Name	Category of Ability		Type							Define				Description																																																																																													Modify VAR				Vision					Source, Short Desc.	Source Page		Aspects
 Low-Light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:LowLightDistance|0	DESC:You can see %1x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.|LowLightDistance															BONUS:VAR|LowLightDistance|2	VISION:Low-Light Vision			SOURCESHORT:PH		SOURCEPAGE:p.165	ASPECT:Vision|Low-Light Vision
 Darkvision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:DarkvisionRange|0	DESC:Range %1 ft.;|DarkvisionRange|PREVARGTEQ:DarkvisionRange,1	DESC:Darkvision is the extraordinary ability to see with no light source at all, out to a range specified for the creature. Darkvision is black and white only (colors cannot be discerned). It does not allow characters to see anything that they could not see otherwise-invisible objects are still invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a creature to gaze attacks normally. The presence of light does not spoil darkvision.|DarkvisionRange						VISION:Darkvision (DarkvisionRange)	SOURCESHORT:PH		SOURCEPAGE:p.165	ASPECT:Vision|Darkvision %1'|DarkvisionRange
+
+###Block:
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Natural_Armor|TYPE=NaturalArmor	
+
+
+# Armor Values - Based upon discussion with Andrew. This model closely matches what he has.
+# Base is just a base Value. 
+# Total is derived from all other values.
+# Flatfooted is derived from Total minus exclusions
+
+# Display Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Base|AC_Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Total|AC_Total
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Flatfooted|AC_Flatfooted
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Touch|AC_Touch
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Misc|AC_Misc
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Natural_Armor|max(AC_Natural_Armor,0)+AC_Natural_Armor_Enhancement
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Ability_Score|AC_Ability_Score|TYPE=Ability
+
+# Armor and Shield will incorporate their bonuses into one complete package with the new system.
+# Currently, due to multiple stacking issues, Armor and Shield will remain old-system.
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Armor|AC_Armor		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Shield|AC_Shield		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Dodge|AC_Dodge		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Size|AC_Size			
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Deflection|max(AC_Deflection,0)		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Circumstance|AC_Circumstance	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Insight|max(AC_Insight,0)		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Morale|AC_Morale		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Profane|AC_Profane		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Sacred|AC_Sacred		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Class_Defense|AC_Class_Defense	
+
+# Formula Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Base|10|TYPE=Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Total|AC_Base+AC_Output_Natural_Armor+AC_Armor+AC_Shield+AC_Ability+AC_Size+AC_Dodge+AC_Deflection+AC_Misc+AC_Circumstance+AC_Insight+AC_Morale+AC_Profane+AC_Sacred+AC_Class_Defense
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Total-AC_Ability-AC_Dodge
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Ability|PRESTAT:1,DEX=10|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Dodge|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Total-AC_Armor-AC_Armor_Enhancement-AC_Natural_Armor-AC_Shield-AC_Shield_Enhancement-AC_Natural_Armor_Enhancement	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Shield|PREVARGTEQ:ShieldAddsToTouchAC,1
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Misc|AC_Output_Total-AC_Output_Base-AC_Output_Armor-AC_Output_Shield-AC_Output_Ability-AC_Output_Size-AC_Output_Natural_Armor-AC_Output_Dodge-AC_Output_Deflection
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score|min(AC_Ability_Score_Bonus, min(Max_Ability_Score_Bonus__Encumbrance,Max_Ability_Score_Bonus__Equipment))|TYPE=Ability
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score_Bonus|DEX	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Encumbrance|MXDXEN
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Equipment|MODEQUIPMAXDEX
+
+
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Armor|TYPE=Armor	BONUS:VAR|AC_Armor|AC_Armor_Enhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Armor_Enhancement|TYPE=ArmorEnhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Shield|TYPE=Shield	BONUS:VAR|AC_Shield|AC_Shield_Enhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Shield_Enhancement|TYPE=ShieldEnhancement
+#							BONUS:COMBAT|AC|AC_Misc|TYPE=Misc			
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Encumbrance|0
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Equipment|0
+
+# These adjust the numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Base|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Total|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Flatfooted|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Touch|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Misc|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score_Bonus|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor_Enhancement|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Size|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Dodge|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Deflection|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Circumstance|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Insight|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Morale|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Profane|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Sacred|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Class_Defense|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor_Enhancement|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield_Enhancement|0
+
+
+# These display the final numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Base|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Total|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Flatfooted|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Touch|0		
+
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Armor|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Shield|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Dodge|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Natural_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Size|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Deflection|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Circumstance|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Insight|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Morale|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Profane|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Sacred|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Class_Defense|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Ability_Score|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Misc|0		
+
+
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Ability|TYPE=Ability
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Size|TYPE=Size
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Dodge|TYPE=Dodge
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Deflection|TYPE=Deflection
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Circumstance|TYPE=Circumstance
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Insight|TYPE=Insight
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Morale|TYPE=Morale
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Profane|TYPE=Profane
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Sacred|TYPE=Sacred
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Class_Defense|TYPE=ClassDefense
+
+
+###Block: Caster Level Tracking
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Divine|0
+#
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Psionic|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Initiator|0
+
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
 
 SOURCELONG:Monster Manual	SOURCESHORT:MM
 
@@ -413,6 +539,8 @@ Immunity to Fear				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 #Improved Grab				CATEGORY:Special Ability
 
+-	CATEGORY:Special Ability	TYPE:NoRaceTrait.NoRaceTraitAttack.SpecialAttack	VISIBLE:YES	KEY:No Race Trait ~ Special Attack
+-	CATEGORY:Special Ability	TYPE:NoRaceTrait.NoRaceTraitQuality.SpecialQuality	VISIBLE:YES	KEY:No Race Trait ~ Special Quality
 
 ###Block: Shared Class Features
 # Ability Name						Unique Key		Output Name						Category of Ability		Type										Visible	Define													Innate Spells																		Description																																																																																																																																																																																				Add to base move					Source Page		Aspects
